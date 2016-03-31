@@ -15,6 +15,8 @@ all libMagick* modules, liblcms2 and liblcms2-devel, libjpeg and libjpeg-devel. 
 add the Cygwin path to the Windows binary at the end of ~/.bashrc file, e.g.:
 
  export PATH=/cygdrive/c/Program\ Files/Hugin/bin/:$PATH
+ 
+You need Hugin-2015 or newer version.
 
 You have to make all the scripts executable by running the following command inside ~/Macro-scripts-master :
 
