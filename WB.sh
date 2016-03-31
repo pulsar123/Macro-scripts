@@ -1,4 +1,7 @@
 #!/bin/bash
+# Part of Macro-scripts package (a complete Open Source workflow for processing macro focus stacking photographs)
+# Written by Sergey Mashchenko
+
 # Bash script to compute white balance settings for dcraw, using central area in a raw grey card image
 
 if test $# -ne 1
