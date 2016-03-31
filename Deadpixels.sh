@@ -15,11 +15,11 @@ if test $# -ne 1
 # Converting raw dark frame to 16-bit gray scale TIFF (linear color space):
 dcraw -4 -T -j -t 0 -D -c $1 > dark.tiff
 
-# Using deadpixels.exe program to find all dead and hot pixels (using Nsigma=10):
+# Using deadpixels program to find all dead and hot pixels (using Nsigma=10):
 # Reduce Nsigma if not all hot pixels are detected (but don't make it smaller than 5.5)
 # Increase Nsigma if spurious hot pixels are detected (but likely the problem is that your dark frame is not
 # entirely dark)
-deadpixels.exe dark.tiff 10
+deadpixels dark.tiff 10
 
 # Deleting dark.tiff file:
 \rm dark.tiff
