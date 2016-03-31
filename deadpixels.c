@@ -4,7 +4,12 @@
 #include <wand/MagickWand.h>
 
 /*
-  Program to find all hot and dead pixels in a given image (dark frame; black and white).
+  Part of Macro-scripts package (a complete Open Source workflow for processing macro focus stacking photographs)
+  Written by Sergey Mashchenko
+ 
+  Utilizes ImageMagick library.
+
+  Program to find all hot and dead pixels in a given image (dark frame; gray scale).
   The dark frame should be generated as follows:
 
   dcraw -4 -T -j -t 0 -D dark.dng
@@ -128,9 +133,7 @@ int main(int argc,char **argv)
 
 		PixelGetMagickColor(pixels[x],&pixel);
 		p = pixel.green;
-		//		if (p<1)
-		//		  printf("%e\n",p);
-		
+
 		// Discarding dead pixels, and using three sigma rule:
 		if (p > dead && abs(p-p0)<3*sgm)
 		  {
