@@ -1,14 +1,17 @@
 #!/bin/bash
+# Part of Macro-scripts package (a complete Open Source workflow for processing macro focus stacking photographs)
+# Written by Sergey Mashchenko
 
-# Focus stackin with enfuse using a two-stage process (first creating slabs, and then stacking the slabs)
-# All files in the current directory with names OUT*.tif will be processed (output of Align.sh script)
-# If any argument used, will skip the enfuse part (dry run; for debugging)
+# Focus stacking with enfuse using a two-stage process (first creating slabs, and then stacking the slabs)
+# All files in the current directory with names OUT*.tif (output of Align.sh script) will be processed
+# If any command line argument used, will skip the enfuse part (dry run; for debugging)
 
 # Overlap on each side (fraction), for each slab:
 over=0.3
 # Overlap should be at least that many images:
 Nover_min=2
 
+# Creating the list of tiff images to process:
 /usr/bin/ls -1 OUT*.tif 2>/dev/null > List
 
 # Number of input files:
@@ -72,4 +75,12 @@ for ((i=0; i<$Nslabs; i++))
  if test $# -eq 0
    then
    enfuse --exposure-weight=0 --saturation-weight=0 --contrast-weight=1 --hard-mask --gray-projector=l-star --output=output.tif ????.tif
+   if test $?
+    then
+    echo
+    echo "Success!"
+    echo
+    fi
    fi
+
+ 
