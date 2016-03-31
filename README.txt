@@ -8,7 +8,7 @@ The scripts use BASH shell, so should work under any Linux distro and Cygwin und
 
 Assuming the directory Macro_scripts is located in your home directory, put the following line at the end of your ~/.bashrc file:
 
- export PATH=~/Macro_scripts:$PATH
+ export PATH=~/Macro-scripts-master:$PATH
 
 For Cygwin (under Windows), you will need to install additional packages, including gcc-core, gcc-g++, libgcc1, ImageMagick,
 all libMagick* modules, liblcms2 and liblcms2-devel, libjpeg and libjpeg-devel. Install the Windows binary of Hugin, and
