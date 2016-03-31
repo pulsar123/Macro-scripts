@@ -1,5 +1,10 @@
 #!/bin/bash
-# Bash script to convert raw images (CR2, DNG etc.) to 48-bit TIFF images
+# Part of Macro-scripts package (a complete Open Source workflow for processing macro focus stacking photographs)
+# Written by Sergey Mashchenko
+
+# Bash script to convert raw images (CR2, DNG etc.) to 48-bit TIFF images.
+# It can use either sRGB or linear color space, and can optionally accept custom white balance coefficients 
+# (computed by applying another script - WB.sh - to a raw photograph of a gray card).
 
 if test $# -lt 2
  then
@@ -67,3 +72,7 @@ if test -f ~/deadpixels.txt
 
 # RAW images conversion to 48-bit TIFFs:
 dcraw -v $dead_arg $OPT $OPT2 -T $*
+
+echo
+echo "Success!"
+echo
