@@ -16,6 +16,10 @@ add the Cygwin path to the Windows binary at the end of ~/.bashrc file, e.g.:
 
  export PATH=/cygdrive/c/Program\ Files/Hugin/bin/:$PATH
 
+You have to make all the scripts executable by running the following command inside ~/Macro-scripts-master :
+
+ chmod u+x *.sh
+
 To compile the two executables (dcraw and deadpixels), execute the script compile.sh (for both Linux and Cygwin).
 
 For more details, consult the wikia page:
