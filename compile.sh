@@ -1,4 +1,8 @@
 #!/bin/bash
+# Part of Macro-scripts package (a complete Open Source workflow for processing macro focus stacking photographs)
+# Written by Sergey Mashchenko
+
+# Execute this script before using Macro scripts.
 
 if test ! -f deadpixels -a ! -f deadpixels.exe
   then
