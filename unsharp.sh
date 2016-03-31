@@ -1,4 +1,7 @@
 #!/bin/bash
+# Part of Macro-scripts package (a complete Open Source workflow for processing macro focus stacking photographs)
+# Written by Sergey Mashchenko
+
 # Unsharp masking for macro shots, using three different unsharp scales
 
 # Radii for the three scales (pixels):
@@ -51,5 +54,3 @@ echo
 
 # Unsharp masking, done in the following order: large scale, middle scale, small scale:
 convert "$IN" -unsharp 0x$rad_x+`echo $x $s_x | awk '{print $1*$2}'`+0 -unsharp 0x$rad_y+`echo $y $s_y | awk '{print $1*$2}'`+0 -unsharp 0x$rad_z+`echo $z $s_z | awk '{print $1*$2}'`+0 "$OUT"
-
-
