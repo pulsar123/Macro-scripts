@@ -7,9 +7,9 @@
 # If any command line argument used, will skip the enfuse part (dry run; for debugging)
 
 # Overlap on each side (fraction), for each slab:
-over=0.3
+over=0
 # Overlap should be at least that many images:
-Nover_min=2
+Nover_min=0
 
 # Creating the list of tiff images to process:
 /usr/bin/ls -1 OUT*.tif 2>/dev/null > List

@@ -185,8 +185,8 @@ int main(int argc,char **argv)
 	    }
 	  else if (p-p0 > Nsigma*sgm)
 	    {
-	      // Hot pixels are marked with the timestamp=1
-	      fprintf (fp, "%d %d 1\n", x, y);
+	      // Hot pixels are marked with the timestamp=1 !!! removed this feature, as new dcraw dosn't work with this
+	      fprintf (fp, "%d %d 0\n", x, y);
 	    }
 	} // x cycle
     } // y cycle

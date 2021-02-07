@@ -4,14 +4,20 @@
 
 # Unsharp masking for macro shots, using three different unsharp scales
 
+# Good numbers: 4:0.5:0.5
+
 # Radii for the three scales (pixels):
-rad_x=24
+#rad_x=24
+rad_x=22
+#rad_y=6
 rad_y=6
-rad_z=0.5
+#  1.5:
+rad_z=2
 # Default strength for each scale:
-s_x=0.075
-s_y=0.1
-s_z=4
+s_x=0.05
+s_y=0.15
+#  1:
+s_z=1
 
 echo
 if test $# -eq 0

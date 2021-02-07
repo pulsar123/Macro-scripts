@@ -5,8 +5,9 @@
 # Bash script to convert raw images (CR2, DNG etc.) to 48-bit TIFF images.
 # It can use either sRGB or linear color space, and can optionally accept custom white balance coefficients 
 # (computed by applying another script - WB.sh - to a raw photograph of a gray card).
+# If dark.tiff present in the local folder, it will be subtracted from the image(s), before debayering.
 
-if test $# -lt 2
+if test $# -lt 1
  then
  echo
  echo "Syntax:"
@@ -70,8 +71,17 @@ if test -f ~/deadpixels.txt
   dead_arg=""
   fi
 
+if test -f dark.tiff
+  then
+  magick convert dark.tiff dark.pgm
+  # Subtracting a dark image if present in the current directory:
+  OPT3="-K dark.pgm"
+  fi
+
+echo "dcraw arguments: $dead_arg $OPT $OPT2 $OPT3"
+
 # RAW images conversion to 48-bit TIFFs:
-dcraw -v $dead_arg $OPT $OPT2 -T $*
+dcraw $dead_arg $OPT $OPT2 $OPT3 -T $*
 
 echo
 echo "Success!"

@@ -8,6 +8,7 @@
 # If something goes wrong you might need to kill one or both running align_image_stack processes manually using
 # pkill or kill.
 
+
 echo
 if test $# -lt 2
  then
@@ -23,7 +24,7 @@ if test "$1" = "-l"
  echo "Assuming linear color space"
  OPT="$1"
  else
- OPT=""
+ OPT="-m"
  fi
 
 files=("$@")
@@ -38,11 +39,13 @@ for e in "${files[@]:0:$middle+1}"
     revfiles=( "$e" "${revfiles[@]}" )
   done
 
+
 # First half aligning: 
 align_image_stack "$OPT" --use-given-order -m -a P1_ ${revfiles[@]} &>out1.log &
 
 # A 10s delay, to have a phase shift between two parallel processes:
 sleep 10
+
 
 # Second half aligning:
 align_image_stack "$OPT" --use-given-order -m -a P2_ ${files[@]:$middle} &>out2.log &
