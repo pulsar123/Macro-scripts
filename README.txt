@@ -27,4 +27,3 @@ To compile the two executables (dcraw and deadpixels), execute the script compil
 For more details, consult the wikia page:
 
 http://pulsar124.wikia.com/wiki/Open_Source_workflow_for_macro_focus_stacking
-
